@@ -1,0 +1,117 @@
+<!DOCTYPE html><!--There isn't much to see here... All the cool stuff happens in core.js ;)-->
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Twisualise | See Your Twitter :)</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<!--Lionbars CSS-->
+<link rel="stylesheet" href="scripts/lionbars/lionbars.css" type="text/css" />
+<!--Google Web Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="loading"><img src="images/loading.gif" alt="The loading gif..."/></div>
+	<form id="userForm">
+		<img src="images/card/closeCard.png" alt="The X button that closes the card" id="closeForm"/>
+		<img src="images/twisualiseLogo.png" alt="The Twisualise Logo..."/><br>
+		<input type="text" id="userInput" placeholder="@username"/><br>
+		<input type="range" id="tweetNumberSelector" min="10" max="200" value="100" /><br>
+		<h6 class="selectorText">Number of Tweets <a id="whatsTheValue">(100)</a></h6>
+		<button id="usernameButton">Get Tweets...</button>
+		<hr>
+		<h4>What is Twisualise?</h4>
+		<h5 class="tagline">Twisualise is a &#60;canvas&#62; based interactive infographic that visualises how a person uses Twitter.</h5>
+		<h5><br>With it, you can -</h5>
+		
+		<h5 class="bullet">- View your own usage (by type, size or users)</h5>
+		<h5 class="bullet">- Compare your usage with other users</h5>
+		<h5 class="bullet">- Visualise what you have in common with other users (Tweets to and from, Shared followers etc.).</h5>
+		<h5 class="bullet">- Explore your Tweet history</h5>
+		<h5 class="bullet">- See which Twitter users you speak to most</h5>
+		
+		<hr>
+		<h4>A few things you should know...</h4>
+		<h5 class="tagline">Twisualise works using only publically available tweets and API's</h5>
+		<h5><br>As such,</h5>
+		
+		<h5 class="bullet">- Your tweets must be 'public' in order for Twisualise to work</h5>
+		<h5 class="bullet">- Twisualise has a request limit of 150 requests per hour, Be gentle :)</h5>
+		
+		
+	</form>
+	
+	<nav id="visualisationsSelector">
+		<ul>
+			<li id="centerMenuOption"><img src="images/nav/CenterInfoGraphActive.png" alt="Menu option shows the initial visualisation"></li>
+			<li id="countMenuOption"><img src="images/nav/countInactive.png" alt="Button for counting visualisation"></li>
+			<li id="historyMenuOption"><img src="images/nav/historyInactive.png" alt="Button for timeline view"></li>
+			<li id="boringDataMenuOption"><img src="images/nav/boringDataInactive.png" alt="Button for boring data view"></li>
+		</ul>
+	</nav>
+	
+	<nav id="centerMenu" class="subMenu">
+		<ul>
+			<li id="centerType">Arrange by type</li>
+			<li id="centerDate">Arrange by date</li>
+		</ul>
+	</nav>
+	
+	<canvas id="twainCanvas" width="600" height="600">
+		<h1>Hmm... The canvas isn't working... Presumably, You don't have a modern browser - Or you're using Internet Explorer. WHY???</h1>
+	</canvas>
+	
+	<div id="backButton">&larr; Back</div>
+	
+	<div id="newTab"><img src="images/nav/plus.png" alt="Tab that allows a person to enter a different username."></div>
+	
+	<blockquote id="twainQuote">
+		<h3>"A man's character may be learned from the adjectives which he habitually uses in conversation."</h3>
+		<h4><em>~ Mark Twain</em></h4>
+	</blockquote>
+	
+	<div id="animationTitles">
+		<h2>All of your Tweets.</h2>
+	</div>
+	
+	<div id="tweetCard">
+		<section class="cardLeft">
+			<img src="images/card/mystery.png" width="80" alt="The profile picture of the user... The src is empty because Js injects the src..."/>
+		</section>
+		<section class="cardRight">
+			<a id="twitterUserName" class="cardText">@seanmtracey</a>
+			<p id="tweetContent" class="cardText">This is the tweet that I have clicked on<br>NEATO!</p>
+		</section>
+		<img src="images/card/closeCard.png" alt="The X button that closes the card" id="closeCard" class="closeButton"/>
+	</div>
+	
+	<div id="lazyAssPanel">
+		<h5 id="blueAnalysis"></h5>
+		<h5 id="redAnalysis"></h5>
+		<h5 id="yellowAnalysis"></h5>
+		<h5 id="whiteAnalysis"></h5>
+	</div>
+	
+	<div id="leftPanel">
+		<div id="speakTo">
+			<!--This is populated by the AJAX lookup of Twitter users the person has communication with recently-->
+		</div>
+		<div class="button">
+			<img src="images/arrow.png" class="" alt="The arrow to close and open the speakTo div" />
+		</div>
+	</div>
+	
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script src="scripts/core.js"></script>
+<script src="scripts/init.js"></script>
+<script src="scripts/date.js"></script>
+<script src="scripts/menus.js"></script>
+<script src="scripts/reply.js"></script>
+<script src="scripts/talkative.js"></script>
+<script src="scripts/timeline.js"></script>
+<script src="scripts/prerequest.js"></script>
+<script src="scripts/boringData.js"></script>
+<script src="scripts/lionbars/jquery.lionbars.js"></script>
+</body>
+</html>
